@@ -361,7 +361,7 @@ const STOPS = [
   { name: '燈塔', desc: '紅白燈塔是小島最高的地方。天黑之前，它會把暖黃的光灑在海面上。', hint: '繞到燈塔背面，看看夕陽從哪個方向照過來。', target: new THREE.Vector3(-7.5, 6.5, -4.5), cam: new THREE.Vector3(-18, 7, 7) },
   { name: 'TRQN 字牌', desc: '四個字母站在島的胸口，是這片群島的名字，也是孩子們每天練習的地方。', hint: '轉一轉，從字母的側面看看它們是一塊一塊堆出來的。', target: new THREE.Vector3(0.2, 2.2, 6.5), cam: new THREE.Vector3(0.5, 6, 21.5) },
   { name: '辦公小屋', desc: '窗戶亮著的小木屋，大人在這裡準備明天的課，燈永遠先幫你開好。', hint: '找找看，屋子旁邊有幾盞小燈籠？', target: new THREE.Vector3(5.5, 2, -5.5), cam: new THREE.Vector3(14, 5, -12) },
-  { name: '木棧道看夕陽', desc: '走到棧道盡頭，腳下是雲，眼前是一整片金色的海。', hint: '拉近一點，看看海面上的光是怎麼閃的。', target: new THREE.Vector3(0, 0.6, 10.5), cam: new THREE.Vector3(0.5, 2.4, 19) },
+  { name: '木棧道看夕陽', desc: '走到棧道盡頭，腳下是雲，眼前是海天相連的晚霞。', hint: '拉近一點，看看晚霞把遠方的小島染成什麼顏色。', target: new THREE.Vector3(-4, -2.0, 38), cam: new THREE.Vector3(0.3, 4.0, 8.8), mark: new THREE.Vector3(0, 0.3, 22) },
   { name: '帆船與雲海', desc: '小船慢慢繞著島航行。也許哪天，它會載著我們去旁邊的小島看看。', hint: '遠方有幾座小小的浮島，你數得出有幾座嗎？', target: new THREE.Vector3(17, -6, 16), cam: new THREE.Vector3(30, 1, 30) },
 ];
 const markers = [];
@@ -378,7 +378,7 @@ const markers = [];
     const tex = new THREE.CanvasTexture(c);
     const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, depthTest: false, transparent: true }));
     sp.scale.set(1.25, 1.25, 1);
-    sp.position.copy(STOPS[i].target).y += 3.4;
+    sp.position.copy(STOPS[i].mark || STOPS[i].target).y += 3.4;
     sp.userData.stop = i;
     if (i === 4) sp.position.set(17, -3.6, 16); // on the boat, not in empty air
     markers.push(sp);
@@ -589,7 +589,7 @@ function tick() {
   boat.rotation.z = Math.sin(t * 0.7) * 0.03;
   markers.forEach((m, i) => {
     if (i === 4) m.position.set(boat.position.x, boat.position.y + 4.6, boat.position.z);
-    else m.position.y = STOPS[i].target.y + 3.4 + Math.sin(t * 1.6 + i) * 0.25;
+    else m.position.y = (STOPS[i].mark || STOPS[i].target).y + 3.4 + Math.sin(t * 1.6 + i) * 0.25;
   });
   lampLight.intensity = 26 + Math.sin(t * 2.2) * 5;
 
