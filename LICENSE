@@ -1,6 +1,13 @@
 MIT License
 
-Copyright (c) 2026 QQweasdzxc (TRQN 美島 3D 試玩)
+Copyright (c) 2026 QQweasdzxc
+
+本授權僅涵蓋本倉庫中新撰寫的程式碼（index.html、main.js）。
+TRQN 品牌名稱、原始畫作與其他既有資產不在本授權範圍內。
+Three.js r160（three.module.min.js、OrbitControls.js）為 Three.js authors
+之著作，沿用其 MIT 授權：https://github.com/mrdoob/three.js/blob/dev/LICENSE
+
+---
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,8 +26,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-Bundled library: Three.js r160 (three.module.min.js, OrbitControls.js)
-Copyright (c) 2010-2024 Three.js authors, MIT License
-https://github.com/mrdoob/three.js/blob/dev/LICENSE
